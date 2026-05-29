@@ -1,12 +1,9 @@
-from rectangle import Rectangle
+from shape import Shape
 
-class Triangle(Rectangle):
-    def __init__(self, base, **kwargs):
-        super().__init__(width=base, **kwargs)
-
+class Triangle(Shape):
     @property
     def area(self):
-        return super().area / 2
+        return self.width * self.height / 2
     
     @property
     def perimeter(self):
