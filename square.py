@@ -1,7 +1,11 @@
-from rectangle import Rectangle
+from shape import Shape
 
-class Square(Rectangle):
-    def __init__(self, side, **kwargs):
-        super().__init__(width=side, height=side, **kwargs)
+class Square(Shape):
+    @property
+    def area(self):
+        return self.side ** 2
     
+    @property
+    def perimeter(self):
+        return self.side * 4
     
