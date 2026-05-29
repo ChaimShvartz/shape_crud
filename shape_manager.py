@@ -35,7 +35,7 @@ class ShapeManager:
         while not is_valid_value:
             user_input = input(f"Enter {parma}: ")
             is_valid_value = ShapeManager.is_positive_number(user_input, type_to_check)
-        return user_input
+        return type_to_check(user_input)
 
     def create_shape(self, shape:str) -> Shape:
         kwargs = {"type": shape}
