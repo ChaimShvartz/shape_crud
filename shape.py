@@ -1,7 +1,12 @@
 class Shape:
-    def __init__(self, shape_id, shape_type, **kwargs):
-        self.id = shape_id
-        self.shape_type = shape_type
+    next_id = 1
+    def __init__(self, type, id=None, **kwargs):
+        if id is None:
+            self.id = Shape.next_id
+        else:
+            self.id = id
+        Shape.next_id = self.id + 1
+        self.type = type
         for key, value in kwargs.items():
             setattr(self, key, value)
 
@@ -15,3 +20,4 @@ class Shape:
 
     def to_dict(self):
         return self.__dict__
+    
