@@ -1,3 +1,5 @@
+# link to GitHub - https://github.com/ChaimShvartz/shape_crud
+
 from shape_manager import ShapeManager
 from shape import Shape
 
