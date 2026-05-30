@@ -1,11 +1,11 @@
 class Shape:
     next_id = 1
     def __init__(self, type, id=None, **kwargs):
-        if id is None:
+        if id is None:                      # for creating a new object
             self.id = Shape.next_id
-        else:
-            self.id = id
-        Shape.next_id = self.id + 1
+            Shape.next_id = self.id + 1
+        else:                               # for loading an old object
+            self.id = id                    # setting up the next id happens in 'init' function of ShapeManager
         self.type = type
         for key, value in kwargs.items():
             setattr(self, key, value)

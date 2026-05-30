@@ -37,11 +37,14 @@ def handle_add_shape(manager:ShapeManager) -> None:
 
 def handle_show_shapes(manager:ShapeManager) -> None:
     shapes = manager.get_all_shapes()
-    print("\n--- Shapes list ---\n")
-    for shape in shapes:
-        for key, value in shape.items():
-            print(f"    {key.capitalize()}: {value}")
-        print()
+    if not shapes:
+        print("\nNo shapes yet")
+    else:
+        print("\n--- Shapes list ---\n")
+        for shape in shapes:
+            for key, value in shape.items():
+                print(f"    {key.capitalize()}: {value}")
+            print()
     input("Enter to continue...")
 
 def handle_update_shape(manager:ShapeManager) -> None:

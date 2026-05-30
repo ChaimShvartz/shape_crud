@@ -19,11 +19,12 @@ class ShapeManager:
         self.file = filename
         self.shapes = []
         self.load_from_json()
+        Shape.next_id = max((shape.id for shape in self.shapes), default=0) + 1
 
     @staticmethod
-    def is_positive_number(value, type):
+    def is_positive_number(value, type_to_check):
         try:
-            return type(value) > 0
+            return type_to_check(value) > 0
         except ValueError:
             print("Invalid input, try again\n")
             return False
@@ -83,9 +84,9 @@ class ShapeManager:
         except FileNotFoundError:
             pass
 
-    def find_shape_by_id(self, shape_id:str) -> Shape | None:
+    def find_shape_by_id(self, shape_id:int) -> Shape | None:
         for shape in self:
-            if str(shape.id) == shape_id:
+            if shape.id == shape_id:
                 return shape
         return None
 
